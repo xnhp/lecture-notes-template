@@ -1,0 +1,52 @@
+\documentclass[10pt,twocolumn]{article}
+
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{zsfgv}
+\usepackage{lipsum}
+\usepackage{multicol}
+
+\begin{document}
+
+\section{Straightline drawings \& canonical ordering}
+
+
+\paragraph{\ild{Canonical Ordering}} (cf. $st$-ordering) of a triangulated graph
+is an ordering of the vertex set $V$, s.t.
+\begin{itemize}
+\item $v_1, v_2, v_n$ are on the outer face
+\item for any $v_j$, $j \in \{3, ..., n-1\}$, it is adjacent to
+  \begin{enumerate}
+  \item at least two vertices with a lower index, \textcolor{gray}{and}
+  \item at least one vertex with a higher index.
+  \end{enumerate}
+\end{itemize}
+\textbf{Computation}: (\textit{``peeling order''}) For $k=n, ..., 3$, pick $v_k$ from
+$\partial(G_k) \backslash \{v_1, v_2\}$ so that $v_k$ not incident to a chord in
+$\partial(G_k)$ \iln{(incident to cord, i.e. triangle with two edges in
+  $\partial (G_k)$ $\rightarrow$ removing leaves only one edge in
+  $\partial(G_k)$)}. \textbf{Existence}: minimal chord (extreme case: triangle) has at
+least one vertex in $\partial(G_k)$ that is not part of a chord.
+
+\paragraph{\thm{Thm.}} A canonical ordering of a triangulated planar graph can
+be computed in linear time. \gray{i.e. can pick chord-free vertices in linear time}.
+\proof{
+  \begin{itemize}
+  \item counter \textsc{Chords}$(v)$ for $v \in \partial(G_k)$
+  \item list \textsc{Chordfree} to consider
+  \end{itemize}
+  Pop vertex from \textsc{Chordfree}, update counter of neighbours: total runtime $\bigO(\sum
+  \mathit{deg}(v)) = \bigO(2m)$. Insert vertex into \textsc{Chordfree} if counter
+  is 0.
+}
+
+\paragraph{\ile{Applications}}
+\begin{itemize}
+\item Kandinsky Drawings
+\item Straighline drawings for planar graphs
+\end{itemize}
+
+
+
+\end{document}
