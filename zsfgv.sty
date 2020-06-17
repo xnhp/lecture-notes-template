@@ -1,0 +1,187 @@
+% this is my first package
+% 
+% (c) Buffalo Bill
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{mypackage}
+  [2011/01/11 v0.01 LaTeX package for my own purpose]
+
+\usepackage[top=0.5cm, left=0.5cm, right=0.5cm, footskip=.5in, bottom=1in]{geometry}
+% remove multicols and use this for layout suited for phone screen
+% \usepackage[top=0.5cm, left=0.5cm, right=0.6cm, footskip=.5in, bottom=1in,paperwidth=9.5cm]{geometry}
+
+\setlength\columnsep{0.375in}
+
+% \setlength\itemsep{-0.2em}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{charter}
+\usepackage{pifont}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{url}
+\usepackage{indentfirst}
+\usepackage{tikz-cd}
+\usepackage[capitalize]{cleveref}
+\usepackage{multirow}
+\usepackage{qcircuit}
+\usepackage{tikz}
+\usepackage{bbm}
+
+\usepackage{nicefrac}
+
+
+\usepackage[inline]{enumitem}
+% \setlist{itemsep=2pt} 
+\setlist[2]{topsep=2pt, parsep=0pt}
+\setlist{
+% https://tex.stackexchange.com/questions/184780/can-someone-please-explain-the-enumitem-horizontal-spacing-parameters
+  labelindent=0.75em , labelwidth=0pt, labelsep*=6pt, leftmargin =!,
+  topsep=\parskip+4pt, itemsep=-2pt
+}
+
+% \setlength{\parskip}{2pt}
+% \setlength{\parsep}{0pt}
+% \setlength{\topsep}{0pt}
+\setlength{\parindent}{0pt}
+% \setlength{\parskip}{0pt plus0pt minus0pt}
+
+
+\usepackage{embedfile}
+
+\usepackage{tocloft}
+\renewcommand{\cftdot}{\ensuremath{\cdot}}
+\renewcommand{\cftdotsep}{5}
+\renewcommand{\cftsecnumwidth}{1.5em}
+\renewcommand{\cftsubsecnumwidth}{3em}
+\renewcommand{\cftsubsubsecnumwidth}{3.5em}
+
+\usepackage{marginnote}
+\reversemarginpar
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+\DeclarePairedDelimiterX\ketbra[2]{\vert}{\vert}{#1 \delimsize\rangle\delimsize\langle #2}
+\DeclarePairedDelimiterX\bramidket[3]{\langle}{\rangle}{#1 \delimsize\vert #2 \delimsize\vert #3}
+
+
+
+
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\Grp}{\mathsf{Grp}}
+\newcommand{\Rmod}{R\hbox{-}\mathsf{mod}}
+\newcommand{\Ab}{\mathsf{Ab}}
+\newcommand{\kxmod}{k[x]\hbox{-}\mathsf{mod}}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\qq}{\mathbb{Q}}
+\newcommand{\nn}{\mathbb{N}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\im}{\mathrm{im}\,}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\Tor}{\mathrm{Tor}}
+\newcommand{\vbar}{\,|\,}
+\newcommand{\ccat}{\mathcal{C}}
+\newcommand{\dcat}{\mathcal{D}}
+\newcommand{\ecat}{\mathcal{E}}
+\newcommand{\Coker}{\mathrm{Coker}\,}
+\newcommand{\Coim}{\mathrm{Coim}\,}
+\renewcommand{\Im}{\mathrm{Im}\,}
+\newcommand{\Ker}{\mathrm{Ker}\,}
+\newcommand{\coker}{\mathrm{coker}\,}
+\newcommand{\coim}{\mathrm{coim}\,}
+\newcommand{\mono}{\rightarrowtail}
+\newcommand{\epi}{\twoheadrightarrow}
+\newcommand{\lmono}{\leftarrowtail}
+\newcommand{\lepi}{\twoheadleftarrow}
+\newcommand{\nt}{\Rightarrow}
+\newcommand{\Fun}{\mathrm{Fun}}
+\newcommand{\blank}{\hbox{--}}
+\newcommand{\eq}{\mathrm{eq}}
+\newcommand{\coeq}{\mathrm{coeq}}
+\newcommand{\PShv}{\mathrm{PShv}}
+\newcommand{\van}{\mathbb{V}}
+\newcommand{\ide}{\mathbb{I}}
+\newcommand{\aff}{\mathbb{A}}
+\newcommand{\kon}{{k[x_1,\ldots,x_n]}}
+\newcommand{\kom}{{k[x_1,\ldots,x_m]}}
+\newcommand{\kzn}{{k[x_0,\ldots,x_n]}}
+\newcommand{\kzm}{{k[x_0,\ldots,x_m]}}
+\newcommand{\pee}{\mathbb{P}}
+\newcommand{\prid}{\mathfrak{p}}
+\newcommand{\maid}{\mathfrak{m}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Coalg}{\mathsf{Coalg}}
+\newcommand{\Sp}{\mathsf{Sp}}
+\newcommand{\Aff}{\mathsf{Aff}}
+\newcommand{\CRing}{\mathsf{CRing}}
+\newcommand{\hilb}{\mathcal{H}}
+\newcommand{\idm}{\mathbbm{1}}
+
+
+\newcommand*{\DashedArrow}[1][]{\mathbin{\tikz [baseline=-0.25ex,-latex, densely dashed,#1] \draw [#1] (0pt,0.5ex) -- (1.3em,0.5ex);}}
+\newcommand{\ratmap}{{\,\DashedArrow[->]\,}}
+\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+
+
+\newcommand{\remove}[1]{\widehat{#1}}
+\newcommand{\interior}[1]{\mathring{#1}}
+\newcommand{\reduced}[1]{\widetilde{#1}}
+\newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\op}[1]{{#1}^\text{op}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\height}{ht}
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\tr}{tr}
+
+\def\labelitemi{\boldmath$\cdot$}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\newcommand{\CT}{\textcolor{orange}{CT}}
+\newcommand{\HA}{\textcolor{cyan}{HA}}
+\newcommand{\AT}{\textcolor{violet}{AT}}
+\newcommand{\AG}{\textcolor{green}{AG}}
+\newcommand{\QI}{\textcolor{pink}{QI}}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\note}[1]{{\footnotesize \textcolor{OliveGreen}{\textit{#1}}}}
+\newcommand{\gdw}{\Leftrightarrow}
+\newcommand{\tw}{\text{tw~}}
+
+\newcommand{\ila}[1]{\textcolor{MidnightBlue}{\textit{#1}}}
+\newcommand{\ild}[1]{\textcolor{Purple}{\textit{#1}}}
+\newcommand{\iln}[1]{\textcolor{OliveGreen}{\textit{#1}}}
+\newcommand{\ile}[1]{\textcolor{OliveGreen}{\textit{#1}}}
+\newcommand{\thm}[1]{\textcolor{BrickRed}{\textit{#1}}}
+\newcommand{\cPr}[2]{\ensuremath{P(#1~|~#2)}}
+\newcommand{\Vor}[1]{\ensuremath{\text{Vor}(#1)}}
+\newcommand{\DG}[1]{\ensuremath{\text{DG}(#1)}}
+
+\newcommand{\outof}[2]{\ensuremath{#1 \underset{#2}{\rightarrow}}}
+
+\newcommand{\into}[2]{\ensuremath{\underset{#2}{\rightarrow}} #1}
+
+\renewcommand{\proof}[1]{\textcolor{dark-gray}{{\footnotesize \textit{Proof:} #1}}}
+
+\definecolor{dark-gray}{gray}{0.3}
+
+\newcommand{\gray}[1]{\textcolor{gray}{\textit{#1}}}
+\newcommand{\bigo}{\mathcal{O}}
+\newcommand{\bigO}{\bigo}
+
+\endinput
+%%
+%% End of file `mypackage.sty'.
