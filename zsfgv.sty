@@ -44,10 +44,10 @@
 \setlist{
 % https://tex.stackexchange.com/questions/184780/can-someone-please-explain-the-enumitem-horizontal-spacing-parameters
   labelindent=0.75em , labelwidth=0pt, labelsep*=6pt, leftmargin =!,
-  topsep=\parskip+4pt, itemsep=-2pt
+  topsep=\parskip-4pt, itemsep=-2pt
 }
 
-% \setlength{\parskip}{2pt}
+\setlength{\parskip}{4pt}
 % \setlength{\parsep}{0pt}
 % \setlength{\topsep}{0pt}
 \setlength{\parindent}{0pt}
@@ -72,7 +72,6 @@
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
 \DeclarePairedDelimiterX\ketbra[2]{\vert}{\vert}{#1 \delimsize\rangle\delimsize\langle #2}
 \DeclarePairedDelimiterX\bramidket[3]{\langle}{\rangle}{#1 \delimsize\vert #2 \delimsize\vert #3}
-
 
 
 
@@ -208,6 +207,8 @@
 \newcommand{\logred}{\leq^{\log}_m}
 \newcommand{\polyred}{\leq^{p}_m}
 \newcommand{\tpolyred}{\leq^{p}_T}
+\newcommand{\argmax}{\ensuremath{\text{argmax}}}
+
 \endinput
 %%
 %% End of file `mypackage.sty'.
